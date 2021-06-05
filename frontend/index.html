@@ -1,0 +1,20 @@
+<html>
+    <head>
+    </head>
+    <body>
+
+    <div id="messages"></div>
+
+    <script>
+      const ws = new WebSocket('ws://localhost:8080/');
+      ws.onopen = function(event) {
+        console.log('onOpen.event:', event);
+      }
+
+      ws.onmessage = function(msg) {
+        document.querySelector('#messages').innerHTML += `<div>${msg.data}</div>`;
+      };
+    </script>
+    </body>
+</html>
+
